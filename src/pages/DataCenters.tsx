@@ -23,7 +23,11 @@ const columns: ColumnDef<DataCenter>[] = [
     header: "Location",
     cell: ({ row }) => {
       const location = row.getValue("location") as string;
-      return <span className="text-[14px] text-gray-900">{location}</span>;
+      return (
+        <span className="font-['Inter:Regular',_sans-serif] text-[14px] leading-[21px] text-[#0D0F1C]">
+          {location}
+        </span>
+      );
     },
   },
   {
@@ -32,7 +36,9 @@ const columns: ColumnDef<DataCenter>[] = [
     cell: ({ row }) => {
       const type = row.getValue("type") as string;
       return (
-        <span className="text-[14px] text-[#1C274C] font-medium">{type}</span>
+        <span className="font-['Inter:Regular',_sans-serif] text-[14px] leading-[21px] text-[#47579E]">
+          {type}
+        </span>
       );
     },
   },
@@ -41,7 +47,11 @@ const columns: ColumnDef<DataCenter>[] = [
     header: "IP Range",
     cell: ({ row }) => {
       const ipRange = row.getValue("ipRange") as string;
-      return <span className="text-[14px] text-gray-900">{ipRange}</span>;
+      return (
+        <span className="font-['Inter:Regular',_sans-serif] text-[14px] leading-[21px] text-[#47579E]">
+          {ipRange}
+        </span>
+      );
     },
   },
   {
@@ -50,7 +60,7 @@ const columns: ColumnDef<DataCenter>[] = [
     cell: ({ row }) => {
       const description = row.getValue("description") as string;
       return (
-        <span className="text-[14px] text-[#1C274C] font-medium">
+        <span className="font-['Inter:Regular',_sans-serif] text-[14px] leading-[21px] text-[#47579E]">
           {description}
         </span>
       );
@@ -82,57 +92,63 @@ export default function DataCenters() {
   }
 
   return (
-    <div className="space-y-4">
-      <div className="flex justify-between items-center">
-        <h1 className="text-3xl font-bold tracking-tight">Data Centers</h1>
-      </div>
-      <div className="rounded-md border">
-        <Table>
-          <TableHeader>
-            {table.getHeaderGroups().map((headerGroup) => (
-              <TableRow key={headerGroup.id}>
-                {headerGroup.headers.map((header) => (
-                  <TableHead key={header.id}>
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
-                  </TableHead>
-                ))}
-              </TableRow>
-            ))}
-          </TableHeader>
-          <TableBody>
-            {table.getRowModel().rows?.length ? (
-              table.getRowModel().rows.map((row) => (
-                <TableRow
-                  key={row.id}
-                  data-state={row.getIsSelected() && "selected"}
-                >
-                  {row.getVisibleCells().map((cell) => (
-                    <TableCell key={cell.id}>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
-                    </TableCell>
+    <div className="bg-[#ffffff] relative w-full min-h-screen p-8">
+      <div className="max-w-[1200px] mx-auto">
+        <div className="mb-6">
+          <h1 className="text-[24px] font-bold text-[#0D0F1C]">Data Centers</h1>
+        </div>
+        <div className="bg-white rounded-md border border-[#E5E8EB] overflow-hidden">
+          <Table>
+            <TableHeader>
+              {table.getHeaderGroups().map((headerGroup) => (
+                <TableRow key={headerGroup.id}>
+                  {headerGroup.headers.map((header) => (
+                    <TableHead
+                      key={header.id}
+                      className="bg-[#F7FAFC] h-[48px] text-[14px] font-medium text-[#0D0F1C]"
+                    >
+                      {header.isPlaceholder
+                        ? null
+                        : flexRender(
+                            header.column.columnDef.header,
+                            header.getContext()
+                          )}
+                    </TableHead>
                   ))}
                 </TableRow>
-              ))
-            ) : (
-              <TableRow>
-                <TableCell
-                  colSpan={columns.length}
-                  className="h-24 text-center"
-                >
-                  No data centers found.
-                </TableCell>
-              </TableRow>
-            )}
-          </TableBody>
-        </Table>
+              ))}
+            </TableHeader>
+            <TableBody>
+              {table.getRowModel().rows?.length ? (
+                table.getRowModel().rows.map((row) => (
+                  <TableRow
+                    key={row.id}
+                    data-state={row.getIsSelected() && "selected"}
+                    className="h-[72px]"
+                  >
+                    {row.getVisibleCells().map((cell) => (
+                      <TableCell key={cell.id}>
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext()
+                        )}
+                      </TableCell>
+                    ))}
+                  </TableRow>
+                ))
+              ) : (
+                <TableRow>
+                  <TableCell
+                    colSpan={columns.length}
+                    className="h-24 text-center"
+                  >
+                    No data centers found.
+                  </TableCell>
+                </TableRow>
+              )}
+            </TableBody>
+          </Table>
+        </div>
       </div>
     </div>
   );
