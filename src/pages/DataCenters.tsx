@@ -15,48 +15,45 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Badge } from "@/components/ui/badge";
 import { Loader2 } from "lucide-react";
 
 const columns: ColumnDef<DataCenter>[] = [
   {
-    accessorKey: "name",
-    header: "Name",
-  },
-  {
     accessorKey: "location",
     header: "Location",
+    cell: ({ row }) => {
+      const location = row.getValue("location") as string;
+      return <span className="text-[14px] text-gray-900">{location}</span>;
+    },
   },
   {
-    accessorKey: "status",
-    header: "Status",
+    accessorKey: "type",
+    header: "Type",
     cell: ({ row }) => {
-      const status = row.getValue("status") as string;
+      const type = row.getValue("type") as string;
       return (
-        <Badge
-          variant={
-            status === "active"
-              ? "default"
-              : status === "maintenance"
-              ? "secondary"
-              : "destructive"
-          }
-        >
-          {status}
-        </Badge>
+        <span className="text-[14px] text-[#1C274C] font-medium">{type}</span>
       );
     },
   },
   {
-    accessorKey: "deviceCount",
-    header: "Devices",
+    accessorKey: "ipRange",
+    header: "IP Range",
+    cell: ({ row }) => {
+      const ipRange = row.getValue("ipRange") as string;
+      return <span className="text-[14px] text-gray-900">{ipRange}</span>;
+    },
   },
   {
-    accessorKey: "lastUpdated",
-    header: "Last Updated",
+    accessorKey: "description",
+    header: "Description",
     cell: ({ row }) => {
-      const date = new Date(row.getValue("lastUpdated"));
-      return date.toLocaleString();
+      const description = row.getValue("description") as string;
+      return (
+        <span className="text-[14px] text-[#1C274C] font-medium">
+          {description}
+        </span>
+      );
     },
   },
 ];
