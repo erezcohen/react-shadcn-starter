@@ -1,15 +1,20 @@
-import { Routes, Route } from "react-router-dom";
-import { AppLayout } from "./components/app-layout";
-import Dashboard from "./pages/Dashboard";
-import Sample from "./pages/Sample";
+import { createBrowserRouter, Navigate } from "react-router-dom";
+import { Layout } from "./components/layout/Layout";
+import DataCenters from "./pages/DataCenters";
 
-export default function Router() {
-  return (
-    <Routes>
-      <Route element={<AppLayout />}>
-        <Route path="" element={<Dashboard />} />
-        <Route path="sample" element={<Sample />} />
-      </Route>
-    </Routes>
-  );
-}
+export const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <Navigate to="/data-centers" replace />,
+      },
+      {
+        path: "data-centers",
+        element: <DataCenters />,
+      },
+    ],
+  },
+]);
