@@ -16,18 +16,8 @@ export const mainMenu: MenuType = [
     icon: Gauge,
   },
   {
-    title: "Pages",
-    url: "/pages",
+    title: "Sample Page",
+    url: "/sample",
     icon: Files,
-    items: [
-      {
-        title: "Sample Page",
-        url: "/pages/sample",
-      },
-      {
-        title: "Coming Soon",
-        url: "/pages/feature",
-      },
-    ],
   },
 ];
