@@ -8,12 +8,10 @@ export type DataCenter = {
 
 export type Device = {
   id: string;
-  name: string;
-  type: "server" | "storage" | "network";
-  status: "online" | "offline" | "warning";
-  dataCenterId: string;
-  ipAddress: string;
-  lastPing: string;
+  model: string;
+  osVersion: string;
+  status: "connected" | "disconnected";
+  dataCenter: string;
 };
 
 export type ApiResponse<T> = {

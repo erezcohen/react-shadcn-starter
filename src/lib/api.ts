@@ -41,31 +41,74 @@ const mockDataCenters: DataCenter[] = [
 
 const mockDevices: Device[] = [
   {
-    id: "dev1",
-    name: "Main Server 01",
-    type: "server",
-    status: "online",
-    dataCenterId: "dc1",
-    ipAddress: "192.168.1.100",
-    lastPing: new Date().toISOString(),
+    id: "Device-001",
+    model: "Galaxy S21",
+    osVersion: "Android 12",
+    status: "connected",
+    dataCenter: "DC-West",
   },
   {
-    id: "dev2",
-    name: "Storage Array 01",
-    type: "storage",
-    status: "warning",
-    dataCenterId: "dc1",
-    ipAddress: "192.168.1.101",
-    lastPing: new Date().toISOString(),
+    id: "Device-002",
+    model: "iPhone 13 Pro",
+    osVersion: "iOS 15.4",
+    status: "connected",
+    dataCenter: "DC-East",
   },
   {
-    id: "dev3",
-    name: "Network Switch 01",
-    type: "network",
-    status: "online",
-    dataCenterId: "dc2",
-    ipAddress: "192.168.2.100",
-    lastPing: new Date().toISOString(),
+    id: "Device-003",
+    model: "Pixel 6",
+    osVersion: "Android 13",
+    status: "disconnected",
+    dataCenter: "DC-Central",
+  },
+  {
+    id: "Device-004",
+    model: "Galaxy S20",
+    osVersion: "Android 11",
+    status: "connected",
+    dataCenter: "DC-West",
+  },
+  {
+    id: "Device-005",
+    model: "iPhone 12",
+    osVersion: "iOS 14.8",
+    status: "disconnected",
+    dataCenter: "DC-East",
+  },
+  {
+    id: "Device-006",
+    model: "Pixel 5a",
+    osVersion: "Android 12",
+    status: "connected",
+    dataCenter: "DC-Central",
+  },
+  {
+    id: "Device-007",
+    model: "Galaxy S10",
+    osVersion: "Android 10",
+    status: "disconnected",
+    dataCenter: "DC-West",
+  },
+  {
+    id: "Device-008",
+    model: "iPhone 11",
+    osVersion: "iOS 13.7",
+    status: "connected",
+    dataCenter: "DC-East",
+  },
+  {
+    id: "Device-009",
+    model: "Pixel 4a",
+    osVersion: "Android 11",
+    status: "disconnected",
+    dataCenter: "DC-Central",
+  },
+  {
+    id: "Device-010",
+    model: "Galaxy S9",
+    osVersion: "Android 9",
+    status: "connected",
+    dataCenter: "DC-West",
   },
 ];
 
@@ -80,7 +123,7 @@ const api = {
   getDevices: async (dataCenterId?: string): Promise<ApiResponse<Device[]>> => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
     const devices = dataCenterId
-      ? mockDevices.filter((device) => device.dataCenterId === dataCenterId)
+      ? mockDevices.filter((device) => device.dataCenter === dataCenterId)
       : mockDevices;
     return { data: devices };
   },
