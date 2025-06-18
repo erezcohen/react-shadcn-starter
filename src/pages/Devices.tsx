@@ -16,8 +16,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Loader2 } from "lucide-react";
-import { Input } from "@/components/ui/input";
+import { Loader2, Search as SearchIcon, X as XIcon } from "lucide-react";
+import { SearchInput } from "@/components/ui/search-input";
 
 const columns: ColumnDef<Device>[] = [
   {
@@ -153,11 +153,10 @@ export default function Devices() {
           </h1>
         </div>
         <div className="mb-4">
-          <Input
+          <SearchInput
             placeholder="Search Devices"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="max-w-xs"
           />
         </div>
         <div className="bg-white rounded-md border border-[#E5E8EB] overflow-hidden">
