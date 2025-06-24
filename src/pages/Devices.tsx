@@ -16,7 +16,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Loader2, Search as SearchIcon, X as XIcon } from "lucide-react";
+import { Loader2, X as XIcon } from "lucide-react";
 import { SearchInput } from "@/components/ui/search-input";
 
 const columns: ColumnDef<Device>[] = [
@@ -26,7 +26,7 @@ const columns: ColumnDef<Device>[] = [
     cell: ({ row }) => {
       const id = row.getValue("id") as string;
       return (
-        <span className="font-['Inter:Regular',_sans-serif] text-[14px] leading-[21px] text-[#0D0F1C]">
+        <span className="font-['Inter'] text-[14px] leading-[21px] text-[#0D0F1C]">
           {id}
         </span>
       );
@@ -38,7 +38,7 @@ const columns: ColumnDef<Device>[] = [
     cell: ({ row }) => {
       const model = row.getValue("model") as string;
       return (
-        <span className="font-['Inter:Regular',_sans-serif] text-[14px] leading-[21px] text-[#47579E]">
+        <span className="font-['Inter'] text-[14px] leading-[21px] text-[#47579E]">
           {model}
         </span>
       );
@@ -50,7 +50,7 @@ const columns: ColumnDef<Device>[] = [
     cell: ({ row }) => {
       const osVersion = row.getValue("osVersion") as string;
       return (
-        <span className="font-['Inter:Regular',_sans-serif] text-[14px] leading-[21px] text-[#47579E]">
+        <span className="font-['Inter'] text-[14px] leading-[21px] text-[#47579E]">
           {osVersion}
         </span>
       );
@@ -63,15 +63,11 @@ const columns: ColumnDef<Device>[] = [
       const status = row.getValue("status") as string;
       const isConnected = status === "connected";
       return (
-        <span
-          className={`inline-block rounded-lg px-4 py-1 text-center text-[14px] font-medium ${
-            isConnected
-              ? "bg-[#e5e8f5] text-[#0d0f1c]"
-              : "bg-[#e5e8f5] text-[#0d0f1c] opacity-60"
-          }`}
-        >
-          {isConnected ? "Connected" : "Disconnected"}
-        </span>
+        <div className="flex items-center justify-start">
+          <span className="bg-[#E5E8F5] rounded-lg px-4 py-1 text-[14px] font-medium text-[#0D0F1C]">
+            {isConnected ? "Connected" : "Disconnected"}
+          </span>
+        </div>
       );
     },
   },
@@ -81,7 +77,7 @@ const columns: ColumnDef<Device>[] = [
     cell: ({ row }) => {
       const dataCenter = row.getValue("dataCenter") as string;
       return (
-        <span className="font-['Inter:Regular',_sans-serif] text-[14px] leading-[21px] text-[#47579E]">
+        <span className="font-['Inter'] text-[14px] leading-[21px] text-[#47579E]">
           {dataCenter}
         </span>
       );
@@ -89,17 +85,17 @@ const columns: ColumnDef<Device>[] = [
   },
   {
     id: "actions",
-    header: "Actions",
+    header: () => (
+      <span className="font-['Inter'] font-bold text-[14px] leading-[21px] text-[#47579E]">
+        Actions
+      </span>
+    ),
     cell: ({ row }) => {
       const status = row.getValue("status") as string;
       const isConnected = status === "connected";
       return (
         <button
-          className={`rounded-lg px-4 py-1 text-[14px] font-bold transition-colors ${
-            isConnected
-              ? "bg-[#47579e] text-white hover:bg-[#2d386b]"
-              : "bg-[#e5e8f5] text-[#47579e] hover:bg-[#d1d5db]"
-          }`}
+          className="font-bold text-[14px] text-[#47579E]"
           // onClick handler would go here
         >
           {isConnected ? "Disconnect" : "Connect"}
@@ -145,29 +141,43 @@ export default function Devices() {
   }
 
   return (
-    <div className="bg-[#ffffff] relative w-full min-h-screen p-8">
-      <div className="max-w-[1200px] mx-auto">
-        <div className="mb-6">
+    <div className="bg-[#F7FAFC] min-h-screen">
+      <div className="max-w-[960px] mx-auto px-10 py-5">
+        <div className="mb-4">
           <h1 className="text-[32px] font-bold text-[#0D0F1C] leading-[40px]">
             Devices
           </h1>
         </div>
-        <div className="mb-4">
-          <SearchInput
-            placeholder="Search Devices"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
+        <div className="mb-3">
+          <div className="relative">
+            <SearchInput
+              placeholder="Search Devices"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="w-full bg-white border border-[#E5E8EB] rounded-lg"
+            />
+            {search && (
+              <button
+                onClick={() => setSearch("")}
+                className="absolute right-3 top-1/2 -translate-y-1/2"
+              >
+                <XIcon className="h-4 w-4 text-[#565A6F]" />
+              </button>
+            )}
+          </div>
         </div>
-        <div className="bg-white rounded-md border border-[#E5E8EB] overflow-hidden">
-          <Table>
+        <div className="bg-[#F7FAFC] rounded-lg border border-[#CFD1E8] overflow-hidden">
+          <Table className="overflow-hidden">
             <TableHeader>
               {table.getHeaderGroups().map((headerGroup) => (
-                <TableRow key={headerGroup.id}>
+                <TableRow
+                  key={headerGroup.id}
+                  className="border-b border-[#E5E8EB]"
+                >
                   {headerGroup.headers.map((header) => (
                     <TableHead
                       key={header.id}
-                      className="bg-[#F7FAFC] h-[48px] text-[14px] font-medium text-[#0D0F1C]"
+                      className="bg-[#F7FAFC] h-[48px] text-[14px] font-bold text-[#0D0F1C] px-4 first:rounded-tl-lg last:rounded-tr-lg"
                     >
                       {header.isPlaceholder
                         ? null
@@ -182,14 +192,24 @@ export default function Devices() {
             </TableHeader>
             <TableBody>
               {table.getRowModel().rows?.length ? (
-                table.getRowModel().rows.map((row) => (
+                table.getRowModel().rows.map((row, rowIndex) => (
                   <TableRow
                     key={row.id}
-                    data-state={row.getIsSelected() && "selected"}
-                    className="h-[72px]"
+                    className="h-[72px] border-t border-[#E5E8EB]"
                   >
-                    {row.getVisibleCells().map((cell) => (
-                      <TableCell key={cell.id}>
+                    {row.getVisibleCells().map((cell, cellIndex) => (
+                      <TableCell
+                        key={cell.id}
+                        className={`px-4 ${
+                          rowIndex === table.getRowModel().rows.length - 1
+                            ? cellIndex === 0
+                              ? "rounded-bl-lg"
+                              : cellIndex === row.getVisibleCells().length - 1
+                              ? "rounded-br-lg"
+                              : ""
+                            : ""
+                        }`}
+                      >
                         {flexRender(
                           cell.column.columnDef.cell,
                           cell.getContext()
@@ -202,7 +222,7 @@ export default function Devices() {
                 <TableRow>
                   <TableCell
                     colSpan={columns.length}
-                    className="h-24 text-center"
+                    className="h-24 text-center rounded-b-lg"
                   >
                     No devices found.
                   </TableCell>
