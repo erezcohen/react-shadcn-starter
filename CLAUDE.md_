@@ -1,0 +1,80 @@
+# CLAUDE.md
+
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
+## Development Commands
+
+**Development:**
+- `npm run dev` - Start development server with Vite
+- `npm run build` - TypeScript build check + production build
+- `npm run lint` - Run ESLint
+- `npm run preview` - Preview production build locally
+- `npm run build:gh` - Build for GitHub Pages deployment (with base URL and hash routing)
+
+**Type Checking:**
+- Use `npm run build` for TypeScript compilation check before production
+
+## Architecture Overview
+
+This is a React + TypeScript SPA using Vite, shadcn/ui, and React Router. The application follows a modular structure with centralized configuration and mock API data.
+
+### Key Architecture Patterns
+
+**Routing:**
+- React Router v7 with nested routes defined in `src/Router.tsx`
+- Layout component wraps all routes with consistent header/navigation
+- Root path redirects to `/data-centers`
+
+**State Management:**
+- React Query (@tanstack/react-query) for server state
+- React Context for theme management (`src/contexts/ThemeContext.tsx`)
+- Local component state for UI interactions
+
+**API Layer:**
+- Mock API in `src/lib/api.ts` with simulated async delays
+- Centralized types in `src/lib/types.ts`
+- Generic `ApiResponse<T>` wrapper for all API responses
+
+**Configuration:**
+- App config in `src/config/app.ts` with environment variable support
+- Menu configuration in `src/config/menu.ts` for navigation structure
+- Vite config supports base URL override via `VITE_BASE_URL`
+
+### Component Structure
+
+**Layout System:**
+- `src/components/layout/Layout.tsx` - Main layout wrapper
+- `src/components/layout/Header.tsx` - App header with navigation
+- Responsive design with container-based layouts
+
+**UI Components:**
+- shadcn/ui components in `src/components/ui/`
+- Custom components follow shadcn patterns
+- Tailwind CSS v4 with CSS variables for theming
+
+**Pages:**
+- Feature pages in `src/pages/` (DataCenters, Devices)
+- Each page handles its own data fetching with React Query
+
+### Data Models
+
+**Primary Types:**
+- `DataCenter`: Location-based infrastructure with type (On-Premise/Cloud), IP ranges, descriptions
+- `Device`: Mobile devices with OS versions, connection status, assigned data centers
+- `ApiResponse<T>`: Standardized API response wrapper
+
+### Development Patterns
+
+**Styling:**
+- Tailwind CSS with shadcn/ui design system
+- CSS variables for theme consistency
+- Responsive-first approach
+
+**Import Aliases:**
+- `@/` maps to `src/`
+- Component categories: `@/components`, `@/lib`, `@/hooks`
+
+**Environment Variables:**
+- `VITE_APP_NAME` - Application name override
+- `VITE_BASE_URL` - Base URL for deployment (GitHub Pages support)
+- `VITE_USE_HASH_ROUTE` - Enable hash routing for static deployments

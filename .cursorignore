@@ -1,0 +1,13 @@
+# Build artifacts
+dist/
+build/
+coverage/
+
+#3rd party
+node_modules/
+
+# Deprecated code
+
+# Experiments and temporary files
+
+# Old migrations and scripts
