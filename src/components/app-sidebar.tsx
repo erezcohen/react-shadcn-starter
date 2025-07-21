@@ -1,6 +1,6 @@
 import { ChevronRight, Menu } from "lucide-react";
 import { mainMenu } from "@/config/menu";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
   Popover,
@@ -28,6 +28,8 @@ import {
 import { cn } from "@/lib/utils";
 
 export function AppSidebar() {
+  const location = useLocation();
+  
   return (
     <SidebarProvider>
       <div className="flex items-center md:hidden">
