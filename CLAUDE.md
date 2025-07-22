@@ -6,9 +6,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - `npm run dev` - Start development server on localhost:5173
 - `npm run build` - Build for production (TypeScript check + Vite build)
+- `npm run typecheck` - Run TypeScript type checking
 - `npm run lint` - Run ESLint
 - `npm run preview` - Preview production build locally
 - `npm run build:gh` - Build for GitHub Pages deployment (sets base URL and hash routing)
+
+## Testing Commands
+
+- `npm test` - Run tests in watch mode with Vitest
+- `npm run test:run` - Run tests once
+- `npm run test:ui` - Run tests with interactive UI interface
+- `npm run test:coverage` - Run tests with coverage report
 
 ## Architecture Overview
 
@@ -65,6 +73,8 @@ Uses Tailwind CSS v4 with custom configuration. The project includes:
 - Lucide React for icons
 - Tailwind CSS v4 for styling
 - Vite for build tooling
+- Vitest for testing framework
+- React Testing Library for component testing
 
 ### Environment Variables
 
@@ -72,8 +82,30 @@ Uses Tailwind CSS v4 with custom configuration. The project includes:
 - `VITE_BASE_URL` - Base URL for routing (fallback: "/")
 - `VITE_USE_HASH_ROUTE` - Use hash routing when "true"
 
+### Testing Architecture
+
+**Test Framework**: Uses Vitest for fast, Vite-powered testing with jsdom environment for React component testing.
+
+**Test Organization**: 
+- Test files located in `__tests__/` directories next to source files
+- `src/test/setup.ts` - Global test configuration with jest-dom matchers
+- `src/test/test-utils.tsx` - Custom render function with providers (Router, Theme)
+
+**Testing Patterns**: 
+- Component tests focus on user interactions and rendering
+- Uses React Testing Library for DOM queries and user event simulation
+- Mock browser APIs (localStorage, matchMedia) for theme system testing
+
 ### Adding New Pages
 
 1. Create component in `src/pages/`
 2. Add route in `Router.tsx`
 3. Add menu item in `src/config/menu.ts` if needed for navigation
+4. Create test file in `src/pages/__tests__/` for component testing
+
+### Adding Component Tests
+
+1. Create `__tests__/` directory next to component
+2. Import test utilities: `import { render, screen } from '@/test/test-utils'`
+3. Use descriptive test names focused on user behavior
+4. Test accessibility, user interactions, and visual states
