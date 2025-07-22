@@ -49,6 +49,7 @@ This is a React + TypeScript starter template using shadcn/ui components built o
 ### Styling System
 
 Uses Tailwind CSS v4 with custom configuration. The project includes:
+
 - `tailwind-merge` for merging Tailwind classes
 - `tailwindcss-animate` for animations
 - `clsx` for conditional class application
@@ -61,7 +62,8 @@ Uses Tailwind CSS v4 with custom configuration. The project includes:
 **Production**: TypeScript compilation followed by Vite build.
 
 **GitHub Pages**: Special build target (`build:gh`) that:
-- Sets `VITE_BASE_URL` to `/react-shadcn-starter/` 
+
+- Sets `VITE_BASE_URL` to `/react-shadcn-starter/`
 - Enables hash routing (`VITE_USE_HASH_ROUTE=true`)
 - Automated deployment via GitHub Actions to `gh-pages` branch
 
@@ -86,12 +88,14 @@ Uses Tailwind CSS v4 with custom configuration. The project includes:
 
 **Test Framework**: Uses Vitest for fast, Vite-powered testing with jsdom environment for React component testing.
 
-**Test Organization**: 
+**Test Organization**:
+
 - Test files located in `__tests__/` directories next to source files
 - `src/test/setup.ts` - Global test configuration with jest-dom matchers
 - `src/test/test-utils.tsx` - Custom render function with providers (Router, Theme)
 
-**Testing Patterns**: 
+**Testing Patterns**:
+
 - Component tests focus on user interactions and rendering
 - Uses React Testing Library for DOM queries and user event simulation
 - Mock browser APIs (localStorage, matchMedia) for theme system testing
@@ -109,3 +113,12 @@ Uses Tailwind CSS v4 with custom configuration. The project includes:
 2. Import test utilities: `import { render, screen } from '@/test/test-utils'`
 3. Use descriptive test names focused on user behavior
 4. Test accessibility, user interactions, and visual states
+
+## The workflow should be:
+
+1. Make code changes
+2. Run npm run lint to check code style
+3. Run npm run typecheck to verify TypeScript correctness
+4. Run npm run test:run to ensure tests pass
+
+- Iterate on these steps as necessary until all checks pass
