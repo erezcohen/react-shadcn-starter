@@ -90,13 +90,13 @@ Uses Tailwind CSS v4 with custom configuration. The project includes:
 
 **Test Organization**:
 
-- Test files located in `__tests__/` directories next to source files
-- `src/test/setup.ts` - Global test configuration with jest-dom matchers
+- Unit Test files located in `__tests__/` directories next to source files
+- `src/test/setup.ts` - Global unit test configuration with jest-dom matchers
 - `src/test/test-utils.tsx` - Custom render function with providers (Router, Theme)
 
 **Testing Patterns**:
 
-- Component tests focus on user interactions and rendering
+- Component unit tests focus on user interactions and rendering
 - Uses React Testing Library for DOM queries and user event simulation
 - Mock browser APIs (localStorage, matchMedia) for theme system testing
 
@@ -107,18 +107,26 @@ Uses Tailwind CSS v4 with custom configuration. The project includes:
 3. Add menu item in `src/config/menu.ts` if needed for navigation
 4. Create test file in `src/pages/__tests__/` for component testing
 
-### Adding Component Tests
+### Adding Component Unit Tests
 
 1. Create `__tests__/` directory next to component
 2. Import test utilities: `import { render, screen } from '@/test/test-utils'`
 3. Use descriptive test names focused on user behavior
-4. Test accessibility, user interactions, and visual states
+4. Test accessibility, user interactions, and visual states.
+5. Tests should cover the happy path, edge cases, error handling etc.
+6. Implement tests according to the given mode:
+   a. If in TDD mode (test-driven development mode):
+   Avoids creating mock implementations for functionality or components that do not exist yet in the codebase.
+   Run the tests and confirm they fail. Do not write any implementation code.
+   b. If not in TDD mode then all test should pass.
 
-## The workflow should be:
+## The Development workflow should be:
 
-1. Make code changes
+1. Make code changes according to the plan
 2. Run npm run lint to check code style
 3. Run npm run typecheck to verify TypeScript correctness
-4. Run npm run test:run to ensure tests pass
-
-- Iterate on these steps as necessary until all checks pass
+4. Run npm run test:run and follow the following appropriate rule:
+   a. If in TDD mode (test-driven development mode) :
+   All test should pass except for the tests that were modified or added for the upcoming change.
+   b. If not in TDD mode then all test should pass.
+5. Iterate on these steps as necessary.
