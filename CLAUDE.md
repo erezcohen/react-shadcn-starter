@@ -120,6 +120,8 @@ Uses Tailwind CSS v4 with custom configuration. The project includes:
    Run the tests and confirm they fail. Do not write any implementation code.
    b. If not in TDD mode then all test should pass.
 
+- Remember to check lint and typescript after adding new tests
+
 ## The Development workflow should be:
 
 1. Make code changes according to the plan
