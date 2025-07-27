@@ -37,7 +37,7 @@ npm run dev
 #   workflow_dispatch:
 on:
   push:
-    branches: ["main"]
+    branches: ['main']
 ```
 
 ## Features
@@ -51,21 +51,21 @@ on:
 
 ```md
 react-shadcn-starter/
-├── public/            # Public assets
-├── src/               # Application source code
-│   ├── components/    # React components
-│   ├── context/       # contexts components
-│   ├── config/        # Config data
-│   ├── hook/          # Custom hooks
-│   ├── lib/           # Utility functions
-│   ├── pages/         # pages/features components
-│   ├── App.tsx        # Application entry point
-│   ├── index.css      # Main css and tailwind configuration
-│   ├── main.tsx       # Main rendering file
-│   └── Router.tsx     # Routes component
-├── index.html         # HTML entry point
-├── tsconfig.json      # TypeScript configuration
-└── vite.config.ts     # Vite configuration
+├── public/ # Public assets
+├── src/ # Application source code
+│ ├── components/ # React components
+│ ├── context/ # contexts components
+│ ├── config/ # Config data
+│ ├── hook/ # Custom hooks
+│ ├── lib/ # Utility functions
+│ ├── pages/ # pages/features components
+│ ├── App.tsx # Application entry point
+│ ├── index.css # Main css and tailwind configuration
+│ ├── main.tsx # Main rendering file
+│ └── Router.tsx # Routes component
+├── index.html # HTML entry point
+├── tsconfig.json # TypeScript configuration
+└── vite.config.ts # Vite configuration
 ```
 
 ## License

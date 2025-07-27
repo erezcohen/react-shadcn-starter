@@ -1,12 +1,12 @@
-import { ChevronRight, Menu } from "lucide-react";
-import { mainMenu } from "@/config/menu";
-import { Link, NavLink, useLocation } from "react-router-dom";
-import { Button } from "@/components/ui/button";
+import { ChevronRight, Menu } from 'lucide-react';
+import { mainMenu } from '@/config/menu';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
+} from '@/components/ui/popover';
 import {
   Sidebar,
   SidebarContent,
@@ -19,17 +19,17 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
   SidebarProvider,
-} from "@/components/ui/sidebar";
+} from '@/components/ui/sidebar';
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/ui/collapsible";
-import { cn } from "@/lib/utils";
+} from '@/components/ui/collapsible';
+import { cn } from '@/lib/utils';
 
 export function AppSidebar() {
   const location = useLocation();
-  
+
   return (
     <SidebarProvider>
       <div className="flex items-center md:hidden">
@@ -76,9 +76,9 @@ export function AppSidebar() {
                                         <NavLink
                                           to={subItem.url}
                                           className={cn(
-                                            "cursor-pointer",
+                                            'cursor-pointer',
                                             subItem.url === location.pathname &&
-                                              "bg-muted"
+                                              'bg-muted'
                                           )}
                                         >
                                           <span>{subItem.title}</span>
@@ -96,8 +96,8 @@ export function AppSidebar() {
                               <Link
                                 to={item.url}
                                 className={cn(
-                                  "cursor-pointer",
-                                  item.url === location.pathname && "bg-muted"
+                                  'cursor-pointer',
+                                  item.url === location.pathname && 'bg-muted'
                                 )}
                               >
                                 {item.icon && <item.icon className="!" />}

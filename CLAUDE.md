@@ -8,6 +8,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run build` - Build for production (TypeScript check + Vite build)
 - `npm run typecheck` - Run TypeScript type checking
 - `npm run lint` - Run ESLint
+- `npm run format` - Format code with Prettier
+- `npm run format:check` - Check code formatting without fixing
 - `npm run preview` - Preview production build locally
 - `npm run build:gh` - Build for GitHub Pages deployment (sets base URL and hash routing)
 
@@ -122,13 +124,26 @@ Uses Tailwind CSS v4 with custom configuration. The project includes:
 
 - Remember to check lint and typescript after adding new tests
 
+## Code Formatting
+
+This project uses Prettier for code formatting integrated with ESLint. Prettier is configured to:
+
+- Use single quotes
+- Include semicolons
+- Use 2-space indentation
+- Set print width to 80 characters
+- Add trailing commas for ES5 compatibility
+
+You can customize these settings in `.prettierrc.json`.
+
 ## The Development workflow should be:
 
 1. Make code changes according to the plan
-2. Run npm run lint to check code style
-3. Run npm run typecheck to verify TypeScript correctness
-4. Run npm run test:run and follow the following appropriate rule:
+2. Run npm run format to format code with Prettier
+3. Run npm run lint to check code style (includes Prettier formatting check)
+4. Run npm run typecheck to verify TypeScript correctness
+5. Run npm run test:run and follow the following appropriate rule:
    a. If in TDD mode (test-driven development mode) :
    All test should pass except for the tests that were modified or added for the upcoming change.
    b. If not in TDD mode then all test should pass.
-5. Iterate on these steps as necessary.
+6. Iterate on these steps as necessary.

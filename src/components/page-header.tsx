@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils"
+import { cn } from '@/lib/utils';
 
 function PageHeader({
   className,
@@ -6,15 +6,10 @@ function PageHeader({
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <section
-      className={cn(
-        "pt-6 pb-4 space-y-2",
-        className
-      )}
-      {...props}>
+    <section className={cn('pt-6 pb-4 space-y-2', className)} {...props}>
       {children}
     </section>
-  )
+  );
 }
 
 function PageHeaderHeading({
@@ -24,12 +19,12 @@ function PageHeaderHeading({
   return (
     <h1
       className={cn(
-        "text-xl font-semibold leading-tight tracking-tight my-1",
+        'text-xl font-semibold leading-tight tracking-tight my-1',
         className
       )}
       {...props}
     />
-  )
+  );
 }
 
 function PageHeaderDescription({
@@ -39,12 +34,12 @@ function PageHeaderDescription({
   return (
     <p
       className={cn(
-        "max-w-2xl text-base font-light text-muted-foreground",
+        'max-w-2xl text-base font-light text-muted-foreground',
         className
       )}
       {...props}
     />
-  )
+  );
 }
 
-export { PageHeader, PageHeaderDescription, PageHeaderHeading }
+export { PageHeader, PageHeaderDescription, PageHeaderHeading };

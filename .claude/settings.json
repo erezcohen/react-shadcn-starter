@@ -12,7 +12,9 @@
       "mcp__context7__get-library-docs",
       "Bash(mkdir:*)",
       "Bash(npm test:*)",
-      "Bash(npm run test:*)"
+      "Bash(npm run test:*)",
+      "Bash(npm run format:*)",
+      "Bash(find:*)"
     ],
     "deny": []
   }

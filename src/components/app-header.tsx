@@ -1,6 +1,6 @@
-import { Link, NavLink, useLocation } from "react-router-dom";
-import { mainMenu } from "@/config/menu";
-import { cn } from "@/lib/utils";
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { mainMenu } from '@/config/menu';
+import { cn } from '@/lib/utils';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -8,13 +8,13 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { ChevronDown } from "lucide-react";
-import { AppLogo } from "./app-logo";
-import { AppSidebar } from "./app-sidebar";
-import { Button } from "./ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import { baseUrl } from "@/config/app";
+} from '@/components/ui/dropdown-menu';
+import { ChevronDown } from 'lucide-react';
+import { AppLogo } from './app-logo';
+import { AppSidebar } from './app-sidebar';
+import { Button } from './ui/button';
+import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
+import { baseUrl } from '@/config/app';
 
 export function AppHeader() {
   const location = useLocation();
@@ -41,11 +41,11 @@ export function AppHeader() {
                         to={item.url}
                         className={({ isActive }) =>
                           cn(
-                            "flex items-center gap-2 overflow-hidden rounded-md p-2.5 text-left text-sm outline-none transition-[width,height,padding] hover:bg-accent hover:text-accent-foreground focus-visible:ring-2 active:bg-accent active:text-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>svg]:size-4",
-                            "h-8 text-sm hover:bg-accent hover:text-accent-foreground",
+                            'flex items-center gap-2 overflow-hidden rounded-md p-2.5 text-left text-sm outline-none transition-[width,height,padding] hover:bg-accent hover:text-accent-foreground focus-visible:ring-2 active:bg-accent active:text-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>svg]:size-4',
+                            'h-8 text-sm hover:bg-accent hover:text-accent-foreground',
                             isActive
-                              ? "text-foreground bg-accent"
-                              : "text-foreground/70"
+                              ? 'text-foreground bg-accent'
+                              : 'text-foreground/70'
                           )
                         }
                       >
@@ -60,8 +60,8 @@ export function AppHeader() {
                           <NavLink
                             to={subItem.url}
                             className={cn(
-                              "cursor-pointer",
-                              subItem.url === location.pathname && "bg-muted"
+                              'cursor-pointer',
+                              subItem.url === location.pathname && 'bg-muted'
                             )}
                           >
                             {subItem.title}
@@ -76,11 +76,11 @@ export function AppHeader() {
                     to={item.url}
                     className={({ isActive }) =>
                       cn(
-                        "flex items-center gap-2 overflow-hidden rounded-md p-2.5 text-left text-sm outline-none transition-[width,height,padding] hover:bg-accent hover:text-accent-foreground focus-visible:ring-2 active:bg-accent active:text-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>svg]:size-4",
-                        "h-8 text-sm hover:bg-accent hover:text-accent-foreground",
+                        'flex items-center gap-2 overflow-hidden rounded-md p-2.5 text-left text-sm outline-none transition-[width,height,padding] hover:bg-accent hover:text-accent-foreground focus-visible:ring-2 active:bg-accent active:text-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&>svg]:size-4',
+                        'h-8 text-sm hover:bg-accent hover:text-accent-foreground',
                         isActive
-                          ? "text-foreground bg-accent"
-                          : "text-foreground/70"
+                          ? 'text-foreground bg-accent'
+                          : 'text-foreground/70'
                       )
                     }
                   >
@@ -100,7 +100,7 @@ export function AppHeader() {
                 >
                   <Avatar className="h-8 w-8">
                     <AvatarImage
-                      src={baseUrl + "/avatars/shadcn.jpg"}
+                      src={baseUrl + '/avatars/shadcn.jpg'}
                       alt="shadcn"
                     />
                     <AvatarFallback className="rounded-lg">SC</AvatarFallback>
