@@ -1,5 +1,3 @@
-import { appConfig } from '@/config/app';
-
 export function AppLogo() {
   return (
     <div className="flex items-center gap-2">
@@ -9,7 +7,9 @@ export function AppLogo() {
       >
         <rect x="2" y="2" width="20" height="20" rx="7" />
       </svg>
-      <span className="font-semibold text-nowrap">{appConfig.name}</span>
+      <span className="font-semibold text-nowrap">
+        {import.meta.env.VITE_APP_NAME ?? 'Sample App'}
+      </span>
     </div>
   );
 }
