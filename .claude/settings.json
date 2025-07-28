@@ -9,12 +9,13 @@
       "Bash(npm run preview)",
       "Bash(npm run typecheck)",
       "Bash(git add:*)",
-      "mcp__context7__get-library-docs",
       "Bash(mkdir:*)",
       "Bash(npm test:*)",
       "Bash(npm run test:*)",
       "Bash(npm run format:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "mcp__context7__resolve-library-id",
+      "mcp__context7__get-library-docs"
     ],
     "deny": []
   }

@@ -15,10 +15,20 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Testing Commands
 
+### Unit/Integration Tests (Vitest)
+
 - `npm test` - Run tests in watch mode with Vitest
 - `npm run test:run` - Run tests once
 - `npm run test:ui` - Run tests with interactive UI interface
 - `npm run test:coverage` - Run tests with coverage report
+
+### End-to-End Tests (Playwright)
+
+- `npm run test:e2e` - Run Playwright tests in headless mode
+- `npm run test:e2e:ui` - Run Playwright tests with interactive UI
+- `npm run test:e2e:debug` - Run Playwright tests in debug mode with inspector
+- `npm run test:e2e:headed` - Run Playwright tests in headed mode (visible browser)
+- `npm run test:e2e:report` - Show detailed HTML test report
 
 ## Architecture Overview
 
@@ -146,4 +156,5 @@ You can customize these settings in `.prettierrc.json`.
    a. If in TDD mode (test-driven development mode) :
    All test should pass except for the tests that were modified or added for the upcoming change.
    b. If not in TDD mode then all test should pass.
-6. Iterate on these steps as necessary.
+6. For E2E testing, run npm run test:e2e to ensure application works end-to-end
+7. Iterate on these steps as necessary.
