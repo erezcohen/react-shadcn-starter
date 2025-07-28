@@ -14,7 +14,6 @@ import { AppLogo } from './app-logo';
 import { AppSidebar } from './app-sidebar';
 import { Button } from './ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
-import { baseUrl } from '@/config/app';
 
 export function AppHeader() {
   const location = useLocation();
@@ -99,10 +98,7 @@ export function AppHeader() {
                   className="relative h-8 w-8 rounded-full cursor-pointer"
                 >
                   <Avatar className="h-8 w-8">
-                    <AvatarImage
-                      src={baseUrl + '/avatars/shadcn.jpg'}
-                      alt="shadcn"
-                    />
+                    <AvatarImage src="/avatars/shadcn.jpg" alt="shadcn" />
                     <AvatarFallback className="rounded-lg">SC</AvatarFallback>
                   </Avatar>
                 </Button>

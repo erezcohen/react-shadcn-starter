@@ -21,5 +21,3 @@ export const appConfig: AppConfigType = {
     url: 'https://github.com/hayyi2/',
   },
 };
-
-export const baseUrl = import.meta.env.VITE_BASE_URL ?? '';

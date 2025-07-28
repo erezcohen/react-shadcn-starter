@@ -11,7 +11,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `npm run format` - Format code with Prettier
 - `npm run format:check` - Check code formatting without fixing
 - `npm run preview` - Preview production build locally
-- `npm run build:gh` - Build for GitHub Pages deployment (sets base URL and hash routing)
 
 ## Testing Commands
 
@@ -36,7 +35,7 @@ This is a React + TypeScript starter template using shadcn/ui components built o
 
 ### Core Architecture
 
-**App Entry Point**: `App.tsx` sets up the theme provider and router wrapper. It conditionally uses `HashRouter` or `BrowserRouter` based on `VITE_USE_HASH_ROUTE` environment variable.
+**App Entry Point**: `App.tsx` sets up the theme provider and router wrapper using `BrowserRouter` for standard routing.
 
 **Routing**: `Router.tsx` defines routes using React Router v7. All routes are wrapped in `AppLayout` component which provides header, footer, and main content area.
 
@@ -73,12 +72,6 @@ Uses Tailwind CSS v4 with custom configuration. The project includes:
 
 **Production**: TypeScript compilation followed by Vite build.
 
-**GitHub Pages**: Special build target (`build:gh`) that:
-
-- Sets `VITE_BASE_URL` to `/react-shadcn-starter/`
-- Enables hash routing (`VITE_USE_HASH_ROUTE=true`)
-- Automated deployment via GitHub Actions to `gh-pages` branch
-
 ### Key Dependencies
 
 - React 19 with TypeScript
@@ -93,8 +86,6 @@ Uses Tailwind CSS v4 with custom configuration. The project includes:
 ### Environment Variables
 
 - `VITE_APP_NAME` - Application name (fallback: "Sample App")
-- `VITE_BASE_URL` - Base URL for routing (fallback: "/")
-- `VITE_USE_HASH_ROUTE` - Use hash routing when "true"
 
 ### Testing Architecture
 
