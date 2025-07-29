@@ -20,29 +20,38 @@ npm run dev
 - [react-router-dom](https://www.npmjs.com/package/react-router-dom)
 - Playwright for E2E tests
 - Vitest + RTL for unit / integration tests
-- Prettier + eslint
+- Prettier + Eslint
+- Responsive
 
 ## Project Structure
 
 ```md
 root/
+├── .claude/ # Claude Code settings and configurations
 ├── public/ # Public assets
 ├── src/ # Application source code
 │ ├── components/ # React components
-│ ├── context/ # contexts components
-│ ├── config/ # Config data
-│ ├── hook/ # Custom hooks
+│ ├── config/ # Configuration data
+│ ├── contexts/ # React context providers
+│ ├── hooks/ # Custom React hooks
 │ ├── lib/ # Utility functions
-│ ├── pages/ # pages/features components
+│ ├── pages/ # Page/feature components
+│ ├── test/ # Test utilities and setup
 │ ├── App.tsx # Application entry point
-│ ├── index.css # Main css and tailwind configuration
+│ ├── index.css # Main CSS and Tailwind configuration
 │ ├── main.tsx # Main rendering file
-│ └── Router.tsx # Routes component
+│ ├── Router.tsx # Routes component
+│ └── vite-env.d.ts # Vite environment types
+├── CLAUDE.md # Claude Code guidance documentation
+├── components.json # shadcn/ui configuration
+├── eslint.config.js # ESLint configuration
 ├── index.html # HTML entry point
 ├── playwright.config.ts # Playwright configuration
 ├── tsconfig.json # TypeScript configuration
-├── vitest.config.ts # Vitest configuration
-└── vite.config.ts # Vite configuration
+├── tsconfig.app.json # App-specific TypeScript config
+├── tsconfig.node.json # Node-specific TypeScript config
+├── vite.config.ts # Vite configuration
+└── vitest.config.ts # Vitest configuration
 ```
 
 ## License
