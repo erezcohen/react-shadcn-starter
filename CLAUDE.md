@@ -31,7 +31,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Architecture Overview
 
-This is a React + TypeScript starter template using shadcn/ui components built on Radix UI primitives.
+This is a React + TypeScript + Vite starter template using shadcn/ui components built on Radix UI primitives.
 
 ### Core Architecture
 

@@ -14,7 +14,7 @@ export default function Dashboard() {
       </PageHeader>
       <Card>
         <CardHeader>
-          <CardTitle>React Shadcn Starter</CardTitle>
+          <CardTitle>React Vite Starter</CardTitle>
           <CardDescription>
             React + Vite + TypeScript template for building apps with shadcn/ui.
           </CardDescription>

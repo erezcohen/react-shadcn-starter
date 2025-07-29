@@ -1,56 +1,31 @@
-# React Shadcn Starter
+# React Vite Starter
 
-React + Vite + TypeScript template for building apps with shadcn/ui.
+React + Vite template
 
 ## Getting Started
 
 ```bash
-npx degit hayyi2/react-shadcn-starter my-project
+npx degit hayyi2/react-vite my-project
 cd my-project
 npm install
 npm run dev
 ```
 
-## Getting Done
-
-- [x] Single page app with navigation and responsif layout
-- [x] Customable configuration `/config`
-- [x] Simple starting page/feature `/pages`
-- [x] Github action deploy github pages
-
-## Deploy `gh-pages`
-
-- change `basenameProd` in `/vite.config.ts`
-- create deploy key `GITHUB_TOKEN` in github `/settings/keys`
-- commit and push changes code
-- setup gihub pages to branch `gh-pages`
-- run action `Build & Deploy`
-
-### Auto Deploy
-
-- change file `.github/workflows/build-and-deploy.yml`
-- Comment on `workflow_dispatch`
-- Uncomment on `push`
-
-```yaml
-# on:
-#   workflow_dispatch:
-on:
-  push:
-    branches: ['main']
-```
-
 ## Features
 
-- React + Vite + TypeScript
-- Tailwind CSS
+- React + Vite
+- TypeScript
+- Tailwind CSS V4
 - [shadcn-ui](https://github.com/shadcn-ui/ui/)
 - [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+- Playwright for E2E tests
+- Vitest + RTL for unit / integration tests
+- Prettier + eslint
 
 ## Project Structure
 
 ```md
-react-shadcn-starter/
+root/
 ├── public/ # Public assets
 ├── src/ # Application source code
 │ ├── components/ # React components
@@ -64,10 +39,16 @@ react-shadcn-starter/
 │ ├── main.tsx # Main rendering file
 │ └── Router.tsx # Routes component
 ├── index.html # HTML entry point
+├── playwright.config.ts # Playwright configuration
 ├── tsconfig.json # TypeScript configuration
+├── vitest.config.ts # Vitest configuration
 └── vite.config.ts # Vite configuration
 ```
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](https://github.com/hayyi2/react-shadcn-starter/blob/main/LICENSE) file for details.
+This project is licensed under the MIT License.
+
+## Credits
+
+Base source: https://github.com/hayyi2/react-shadcn-starter

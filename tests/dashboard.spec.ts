@@ -6,7 +6,7 @@ test.describe('Dashboard Page', () => {
   });
 
   test('should load page correctly', async ({ page }) => {
-    await expect(page).toHaveTitle('React Shadcn Starter');
+    await expect(page).toHaveTitle('React Vite Starter');
     await expect(
       page.getByRole('heading', { name: 'Dashboard' })
     ).toBeVisible();
@@ -22,9 +22,9 @@ test.describe('Dashboard Page', () => {
     page,
   }) => {
     // Check card title
-    const cardTitle = page.getByText('React Shadcn Starter');
+    const cardTitle = page.getByText('React Vite Starter');
     await expect(cardTitle).toBeVisible();
-    await expect(cardTitle).toHaveText('React Shadcn Starter');
+    await expect(cardTitle).toHaveText('React Vite Starter');
 
     // Check card description
     const cardDescription = page.getByText(
@@ -42,7 +42,7 @@ test.describe('Dashboard Page', () => {
     await expect(pageHeader).toBeVisible();
 
     // Verify card is present after the header
-    const cardTitle = page.getByText('React Shadcn Starter');
+    const cardTitle = page.getByText('React Vite Starter');
     await expect(cardTitle).toBeVisible();
   });
 
@@ -101,7 +101,7 @@ test.describe('Dashboard Page', () => {
     await expect(h1).toHaveText('Dashboard');
 
     // Verify the card has proper structure with title
-    const cardTitle = page.getByText('React Shadcn Starter');
+    const cardTitle = page.getByText('React Vite Starter');
     await expect(cardTitle).toBeVisible();
   });
 

@@ -6,7 +6,7 @@ test.describe('Sample Page', () => {
   });
 
   test('should load page correctly', async ({ page }) => {
-    await expect(page).toHaveTitle('React Shadcn Starter');
+    await expect(page).toHaveTitle('React Vite Starter');
     await expect(
       page.getByRole('heading', { name: 'Sample Page' })
     ).toBeVisible();
